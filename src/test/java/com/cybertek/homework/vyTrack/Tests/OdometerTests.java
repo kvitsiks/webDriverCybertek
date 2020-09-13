@@ -2,6 +2,7 @@ package com.cybertek.homework.vyTrack.Tests;
 
 import com.cybertek.homework.vyTrack.Pages.DashboardPage;
 import com.cybertek.homework.vyTrack.Pages.LoginPage;
+import com.cybertek.homework.vyTrack.Pages.OdometerPage;
 import com.cybertek.homework.vyTrack.Verifications.VyTrackVerifications;
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
@@ -19,6 +20,9 @@ public class OdometerTests {
 
         VyTrackVerifications verification = new VyTrackVerifications(driver);
         verification.verifyVehicleOdometerPageIsDisplayed();
+
+        OdometerPage odometer = new OdometerPage(driver);
+        odometer.hoverOverDotsMenu();
     }
 
 }

@@ -30,4 +30,5 @@ public class DashboardPage {
         implicitlyWait();
         wait.until(ExpectedConditions.visibilityOfElementLocated(odometerLink)).click();
     }
+
 }
