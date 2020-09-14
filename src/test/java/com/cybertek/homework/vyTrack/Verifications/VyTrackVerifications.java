@@ -31,7 +31,6 @@ public class VyTrackVerifications {
         WebDriverWait wait = new WebDriverWait(driver, 30);
         String actualLogoText = wait.until(ExpectedConditions.visibilityOfElementLocated(vyTrackLogo)).getText();
         Assert.assertEquals(actualLogoText, expectedText);
-        driver.close();
     }
 
     By pageTitleText = By.xpath("//h1[@class = 'oro-subtitle']");
@@ -42,6 +41,12 @@ public class VyTrackVerifications {
         WebDriverWait wait = new WebDriverWait(driver, 30);
         String actualTitleText = wait.until(ExpectedConditions.visibilityOfElementLocated(pageTitleText)).getText();
         Assert.assertEquals("Condition true", expectedTitleText, actualTitleText);
-        driver.quit();
+    }
+
+    public void verifyEditPageIsOpened(){
+        pageLoadTimeout();
+        String expectedTitle = "Vehicle Odometer - Entities - System - Car - Entities - System";
+        String actualTitle = driver.getTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
     }
 }

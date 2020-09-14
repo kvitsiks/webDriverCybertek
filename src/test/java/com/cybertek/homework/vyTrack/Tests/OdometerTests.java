@@ -8,8 +8,11 @@ import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 
 public class OdometerTests {
+
+    public static WebDriver driver;
+
     public static void main(String[] args) throws InterruptedException {
-        WebDriver driver = WebDriverFactory.getDriver("chrome");
+        driver = WebDriverFactory.getDriver("chrome");
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.getUrl();
@@ -23,6 +26,9 @@ public class OdometerTests {
 
         OdometerPage odometer = new OdometerPage(driver);
         odometer.hoverOverDotsMenu();
-    }
+        odometer.clickOnEditButton();
+        verification.verifyEditPageIsOpened();
 
+        driver.quit();
+    }
 }

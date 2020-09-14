@@ -32,18 +32,12 @@ public class MouseHover {
         driver.findElement(By.linkText("Vehicle Odometer")).click();
         Thread.sleep(6000);
         Actions action = new Actions(driver);
-        WebElement we = driver.findElement(By.xpath("//*[@id=\"grid-custom-entity-grid-390103899\"]/div[2]/div[2]/div[2]/div/table/tbody/tr[1]/td[7]"));
-        ////a[@title="Edit"]
+        WebElement we = driver.findElement(By.xpath("(//*[@class='action-cell grid-cell grid-body-cell'])[1]"));
         action.moveToElement(we).perform();
-        Thread.sleep(6000);
-        //driver.findElement(By.xpath("(//ul[@class='nav nav-pills icons-holder launchers-list']/li[2])[1]/a")).click();
-        // /html/body/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]/div[2]/div[2]/div[2]/div/table/tbody/tr[1]/td[7]/div/div/ul/li/ul/li[2]/a
-        //*[@id="grid-custom-entity-grid-1558213033"]/div[2]/div[2]/div[2]/div/table/tbody/tr[1]/td[7]/div/div/ul/li/ul/li[2]/a
-        // driver.findElement(By.tagName())
-        // driver.findElement(By.id("user-menu")).click();
-        // Thread.sleep(1000);
-        //driver.findElement(By.linkText("Logout")).click();
-        //Thread.sleep(1000);
-        //driver.close();
+        Thread.sleep(2000);
+        WebElement edit = driver.findElement(By.xpath("//a[@title=\"Edit\"]"));
+        edit.click();
+        Thread.sleep(2000);
+        driver.quit();
     }
 }
