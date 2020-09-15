@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class DashboardPage {
     WebDriver driver;
+
     By fleetMenu = By.xpath("//a/span[contains(text(), 'Fleet')]");
     By odometerLink = By.xpath(("//span[contains(text(), 'Vehicle Odometer')]"));
 

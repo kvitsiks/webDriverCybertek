@@ -1,5 +1,6 @@
 package com.cybertek.homework.vyTrack.Pages;
 
+import com.cybertek.homework.vyTrack.Config.Config;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,9 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class LoginPage {
     WebDriver driver;
-    String baseUrl = "https://qa2.vytrack.com/user/login";
-    String username = "user165";
-    String password = "UserUser123";
+
     By usernameField = By.cssSelector("[id=prependedInput]");
     By passwordField = By.cssSelector("[id=prependedInput2]");
     By logInButton = By.cssSelector("[id*=_submit]");
@@ -31,14 +30,14 @@ public class LoginPage {
         pageLoadTimeout();
         implicitlyWait();
         driver.manage().window().maximize();
-        driver.get(baseUrl);
+        driver.get(Config.baseUrl);
     }
 
     public void login() {
         WebDriverWait wait = new WebDriverWait(driver, 30);
         pageLoadTimeout();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(usernameField)).sendKeys(username);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField)).sendKeys(password);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(usernameField)).sendKeys(Config.username);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField)).sendKeys(Config.password);
         wait.until(ExpectedConditions.visibilityOfElementLocated(logInButton)).click();
     }
 }

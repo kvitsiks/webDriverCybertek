@@ -8,7 +8,9 @@ import org.openqa.selenium.interactions.Actions;
 import java.util.concurrent.TimeUnit;
 
 public class OdometerPage {
+
     WebDriver driver;
+
     By threeDotsMenu = By.xpath("(//*[@class='action-cell grid-cell grid-body-cell'])[1]");
     By editButton = By.xpath(("//a[@title='Edit']"));
 
