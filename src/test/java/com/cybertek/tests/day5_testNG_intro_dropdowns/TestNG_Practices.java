@@ -21,25 +21,45 @@ public class TestNG_Practices {
         driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        //1- Go to google
         driver.get("https://www.google.com");
     }
+
     @Test
     public void google_title_verification(){
+
+        System.out.println("google_title_verification test is running");
+        //2- Verify title is google
         String expectedTitle = "Google";
         String actualTitle = driver.getTitle();
-        Assert.assertEquals(actualTitle, expectedTitle, "Titles are not matching:");
+
+        Assert.assertEquals(actualTitle, expectedTitle, "Titles are not matching!");
+
     }
+
     @Test
     public void google_search_title_verification(){
+        //go to google --> this part will be taken care of in the beforeMethod
+        //search apple
+        System.out.println("google_search_title_verification test is running");
         WebElement searchBox = driver.findElement(By.name("q"));
         searchBox.sendKeys("apple" + Keys.ENTER);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        String expectedTitle = "apple - Google Search";
+        //make sure title contains apple
+        String expectedInTitle = "apple";
         String actualTitle = driver.getTitle();
-        Assert.assertTrue(actualTitle.equals(expectedTitle), "Titles are not matching:");
+
+        Assert.assertTrue(actualTitle.contains(expectedInTitle), "Title does not contain search value.");
+
     }
+
+
     @AfterMethod
-    public void tearDown(){
+    public void tearDownMethod() throws InterruptedException{
+        Thread.sleep(1000);
         driver.close();
     }
+
+    //BREAK UNTIL 3.02PM CST - 4.02PM EST
+
+
 }
